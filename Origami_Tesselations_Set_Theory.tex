@@ -1,0 +1,85 @@
+\documentclass{beamer}
+\input{preamble.tex}
+\begin{document}
+\addfontfeature{LetterSpace=-5}
+
+% === PORTADA === (((
+\begin{frame}[plain]
+	\input{titulo.tex}
+\end{frame}
+% )))
+
+% REPASO DE DEFINICIÓN DE ORIGAMI
+\section{Definición de Origami y Teselación.} % (((
+\begin{frame}[t]
+	\begin{exampleblock}{}
+		El \textit{origami} (), es el arte japonés de crear superficies de papel a través de realizar \textit{dobleces} a una sola hoja. \\[2mm]
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}[t]
+	\begin{exampleblock}{}
+		Sean \(a < b \) y \(c < d \). Entonces al conjunto \([a,b] \times [c,d] \subseteq \mathbb{R} ^2\) se le llama \textbf{rectángulo}.
+		Es decir, un \textbf{origami} es una transformación continua \(T: [a,b] \times [c,d] \longrightarrow \mathbb{R} ^3\), y esperamos que satisfaga lo siguiente.
+		\begin{enumerate}
+			\item Existe una partición de \([a,b] \times [c,d]\) tal que \(T \big| _{A}\) es inyectiva para cada \(A\) en la partición.
+			\item \(T\) preserva ángulos y distancias entre cada par de elementos de un conjunto en la partición.
+			\item 
+		\end{enumerate}
+		Por ser \(T\) continua y \(D\) compacto, \(T(D)\) es compacto.
+	\end{exampleblock}
+\end{frame}
+% )))
+
+% Definición de teselación.
+% INTRODUCCIÓN A MANIFOLDS (con animaciones)
+% Primer intento de definir doblez (con JM, en triangulos).
+% Segundo intento (con alfileres)
+% tercer intento (funciones indicadoras) + Teorema
+% papers (map foldings) (+ 1 teorema desmotrado)
+% intento de definir topología (spoiler resulta la discreta)-
+
+% pi-sistemas
+\section{Pi-Sistemas} % (((
+\begin{frame}[t]
+	\begin{block}{Observación.}
+		\begin{minipage}{0.5\linewidth}
+			La intersección de rectángulos siempre es un rectángulo. \\[2mm]
+			La unión de rectángulos no-necesariamente es rectángulo.
+			\[
+				\bigg(\dis\bigcup_{i=1}^{n} A_i\bigg) \times \bigg(\dis\bigcup_{i=1}^{m} B_i\bigg) = \dis\bigcup_{i,j = 1}^{n,m} A_i \times B_j.
+			\]
+			Es decir, no se puede definir una topología cuyos abiertos sólo sean rectángulos.
+		\end{minipage}\hspace{5mm}
+		\begin{minipage}{0.4\linewidth}
+			\includegraphics[width= \linewidth, page = 1]{IMAGENES/1_PI_SISTEMAS/1/tikz.pdf}
+		\end{minipage}
+	\end{block}
+\end{frame}
+
+\begin{frame}[t]
+	\begin{block}{Definición.}
+		Sea \(X \ne \varnothing\). Una colección \(\mathscr{C} \subseteq \mathscr{P}(X)\), es un \textbf{\(\pi\)--sistema} si satisface la siguiente condición.
+		\begin{enumerate}
+			\item \(\forall A_1, \;\ldots,\; A_n \in \mathscr{C} \;\implies\; \dis\bigcap_{i=1}^{n} A_i \in \mathscr{C}\).
+		\end{enumerate}
+	\end{block}
+	\begin{block}{Lema.}
+		Sea \(\mathscr{A}\) conjunto de índices. Si \(\mathscr{C} _\alpha\), \(\alpha \in \mathscr{A}\) es un \(\pi \)--sistema, para todo \(\alpha \in \mathscr{A}\), entonces
+		\[
+			\dis\bigcap_{\alpha \in \mathscr{A}} \mathscr{C}_\alpha \mbox{ es un } \pi \mbox{--sistema.}
+		\]
+		\textbf{Demostración.}
+		\begin{itemize}
+			\item Si \(A_1, \;\ldots,\; A_n \in \dis\bigcap_{\alpha \in \mathscr{A}} \mathscr{C} _\alpha\), entonces
+			\item \(A_1, \;\ldots,\; A_n \in \mathscr{C} _\alpha\), \(\forall \alpha \in \mathscr{A}\). Por ser \(\mathscr{C} _\alpha\), \(\pi\)--sistema:
+			\item \(\dis\bigcap_{i=1}^{n} A_i \in \mathscr{C} _\alpha\), \(\forall \alpha \in \mathscr{A}\). Por tanto \(\dis\bigcap_{i=1}^{n} A_i \in \dis\bigcap_{\alpha \in \mathscr{A}} \mathscr{C} _\alpha\). \qed
+		\end{itemize}
+	\end{block}
+\end{frame}
+% )))
+
+% definir con una operación (algebra).
+% Grafos (matriz de adyacencia).
+
+\end{document}

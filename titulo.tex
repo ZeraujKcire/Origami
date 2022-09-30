@@ -1,0 +1,69 @@
+%%%%%%%% Title slide details %%%%%%%%%%%%%%
+
+
+% Background Image
+\newcommand{\myBackround}
+{
+    \includegraphics[width=\paperwidth]{IMAGENES/background.png}
+}
+
+% Title
+\newcommand{\myTitle}
+{
+	\textsc{Origami, Teselaciones y Teoría de Conjuntos.}
+}
+
+% Author
+\newcommand{\myAuthor}   
+{
+    Por Erick Rodríguez.
+}
+
+% Affiliation
+\newcommand{\myAffiliate}
+{
+    UAA, LMA.
+}
+
+% Presentation Date
+\newcommand{\myDate}   
+{
+    \today
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%% Title slide code %%%%%%%%%%%
+\begin{tikzpicture}[remember picture,overlay]
+
+% Background image
+\node[above right,inner sep=0pt] at (current page.south west)
+    {
+        \myBackround
+    };
+    
+% Title & Subtitle
+\node
+[
+    above=0.5cm,
+    align=center,
+    fill=orange!10,
+    inner xsep=15pt,
+    inner ysep=10pt, 
+    minimum width=\textwidth,
+    text width=0.9\textwidth
+] (title) at (current page.center)
+{
+    \LARGE \myTitle
+};
+
+% Author 
+\node[ below=0.5cm] (author) at (title.south){\myAuthor};
+
+% Author 
+\node[ below=0.1cm] (affiliate) at (author.south){\small \myAffiliate};
+
+% Date
+\node[below=0.25cm] (date) at (affiliate.south){\large \myDate};
+
+\end{tikzpicture}

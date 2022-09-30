@@ -1,0 +1,92 @@
+
+% === DATOS === (((
+\title{Origami, Teselaciones y Teoría de Conjuntos.}
+\author{Erick Rodríguez}
+\institute{Universidad Autónoma de Aguascalientes.}
+% \date{}
+% )))
+
+% === PAQUETES === (((
+% \usepackage{wasysym}
+\usetheme{Warsaw}
+\setbeamertemplate{enumerate items}[circle] % esto lo estoy usando para los simbolos de enumeración.
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+% \usepackage{expl3}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+% )))
+
+% === TIPOGRAFÍA === (((
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+\usepackage{fontspec}
+\setmainfont[
+  BoldFont       = bodonibi,
+	ItalicFont     = Century modern italic2.ttf,
+	BoldItalicFont = bodonibi,
+	SmallCapsFont  = lmromancaps10-regular.otf
+]{Century_modern.ttf}
+\setbeamerfont{frametitle}{family=\scshape}
+% \usepackage{expl3}
+\DeclareSymbolFont{italics}{\encodingdefault}{\rmdefault}{m}{it}
+\DeclareSymbolFontAlphabet{\mathit}{italics}
+\ExplSyntaxOn
+\int_step_inline:nnnn { `A } { 1 } { `Z }
+ {  \exp_args:Nf \DeclareMathSymbol{\char_generate:nn{#1}{11}}{\mathalpha}{italics}{#1} }
+\int_step_inline:nnnn { `a } { 1 } { `z } {  \exp_args:Nf \DeclareMathSymbol{\char_generate:nn{#1}{11}}{\mathalpha}{italics}{#1}}
+\ExplSyntaxOff
+% )))
+
+% === COMANDOS === (((
+\newcommand{\dis}{\displaystyle}
+\renewcommand{\qed}{\hspace{0.5cm}\rule{0.16cm}{0.4cm}}
+\newcommand\Myref[1]{
+  \begingroup
+  \usebeamerfont*{item projected}%
+  \usebeamercolor[bg]{item projected}%
+  \begin{pgfpicture}{-1ex}{0ex}{1ex}{2ex}
+    \pgfpathcircle{\pgfpoint{0pt}{.75ex}}{1.2ex}
+    \pgfusepath{fill}
+    \pgftext[base]{\color{fg}\ref{#1}}
+  \end{pgfpicture}%
+  \endgroup
+}
+\addtobeamertemplate{titleframe}{}{\vspace{-1em}}
+% )))
+
+% === COLORS === (((
+\beamertemplatenavigationsymbolsempty % for remove the nav. symb.
+\mode<presentation>
+
+\definecolor{MSUgreen}{RGB}{216, 90, 55}
+% rgb(216, 90, 55)
+
+\setbeamercolor{alerted text}{fg=black}
+\setbeamercolor*{palette primary}{fg=white,bg=white!60!MSUgreen}
+\setbeamercolor*{palette secondary}{fg=black,bg=white!40!MSUgreen}
+\setbeamercolor*{palette tertiary}{bg=black,fg=white!30!MSUgreen}
+\setbeamercolor*{palette quaternary}{fg=MSUgreen!10!black,bg=white!05!MSUgreen}
+
+\setbeamercolor*{sidebar}{fg=MSUgreen,bg=MSUgreen!75!white}
+
+\setbeamercolor*{palette sidebar primary}{fg=MSUgreen!10!black}
+\setbeamercolor*{palette sidebar secondary}{fg=white!80!blue}
+\setbeamercolor*{palette sidebar tertiary}{fg=MSUgreen!50!black}
+\setbeamercolor*{palette sidebar quaternary}{fg=white!10!MSUgreen}
+
+\setbeamercolor*{titlelike}{parent=palette primary}
+\setbeamercolor{frametitle}{bg=blue!10!MSUgreen}
+\setbeamercolor{frametitle right}{bg=white!60!MSUgreen}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=MSUgreen!15!white,fg=black}
+\setbeamercolor{block title}{bg=MSUgreen!90!blue,fg=white}
+
+\setbeamercolor{block body example}{parent=normal text,use=block title,bg=MSUgreen!15!white,fg=black}
+\mode
+<all>
+% )))
