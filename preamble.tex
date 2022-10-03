@@ -1,15 +1,14 @@
 
 % === DATOS === (((
 \title{Origami, Teselaciones y Teoría de Conjuntos.}
-\author{Erick Rodríguez}
-\institute{Universidad Autónoma de Aguascalientes.}
-% \date{}
+\author{Erick Rodríguez.}
+% \institute{U.A.A.}
+\date{}
 % )))
 
 % === PAQUETES === (((
 % \usepackage{wasysym}
 \usetheme{Warsaw}
-\setbeamertemplate{enumerate items}[circle] % esto lo estoy usando para los simbolos de enumeración.
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -29,7 +28,6 @@
 	BoldItalicFont = bodonibi,
 	SmallCapsFont  = lmromancaps10-regular.otf
 ]{Century_modern.ttf}
-\setbeamerfont{frametitle}{family=\scshape}
 % \usepackage{expl3}
 \DeclareSymbolFont{italics}{\encodingdefault}{\rmdefault}{m}{it}
 \DeclareSymbolFontAlphabet{\mathit}{italics}
@@ -54,7 +52,51 @@
   \end{pgfpicture}%
   \endgroup
 }
-\addtobeamertemplate{titleframe}{}{\vspace{-1em}}
+\newcommand{\operator}[1]{\mathop{\vphantom{\sum}\mathchoice
+{\vcenter{\hbox{\huge $#1$}}}
+{\vcenter{\hbox{\Large $#1$}}}{#1}{#1}}\displaylimits}
+\newcommand{\suma}{\operator{\includegraphics[scale=0.09]{IMAGENES/Sigma.png}}}
+\setlength{\parindent}{0mm}
+% )))
+
+% === BEAMER TEMPLATE === (((
+% TITULOS EN SMALL CAPS
+\setbeamerfont{frametitle}{family=\scshape\LARGE}
+\setbeamerfont{section in head/foot}{size = \scriptsize}
+% sin footline
+\setbeamertemplate{footline}{}
+% enumerates sin shade
+\setbeamertemplate{enumerate items}[circle] % esto lo estoy usando para los simbolos de enumeración.
+% items sin shade
+\setbeamertemplate{itemize item}{\tikz \fill [MSUgreen] (0,0) circle (0.5ex);}
+\setbeamertemplate{itemize subitem}{\tikz \fill [MSUgreen] (0,0) circle (0.5ex);}
+% quitar espacio
+\addtobeamertemplate{titleframe}{}{\vspace{-5mm}}
+\addtobeamertemplate{block begin}{\vskip - \bigskipamount}{}
+\addtobeamertemplate{block end}{}{\vskip - \smallskipamount}
+\addtobeamertemplate{block example begin}{\vskip - \bigskipamount}{}
+\addtobeamertemplate{block example end}{}{\vskip - \smallskipamount}
+% PARA VER SECCIONES HORIZONTALMENTE
+\setbeamertemplate{headline}{
+\leavevmode
+\hbox{
+	\begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=2ex]{palette quaternary}
+\insertsectionnavigationhorizontal{\paperwidth}{\hskip 0pt plus1filll}{\hskip 0pt plus1filll}
+\end{beamercolorbox}
+% 
+}
+% 
+}
+% SECCIONES EN PÁGINAS.
+\setbeamerfont{section title}{parent=title}
+\setbeamertemplate{section page}
+{
+    \begin{centering}
+	    \begin{beamercolorbox}[sep=12pt,center]{secciones}
+    \usebeamerfont{frametitle}\insertsection\par
+    \end{beamercolorbox}
+    \end{centering}
+}
 % )))
 
 % === COLORS === (((
@@ -68,14 +110,14 @@
 \setbeamercolor*{palette primary}{fg=white,bg=white!60!MSUgreen}
 \setbeamercolor*{palette secondary}{fg=black,bg=white!40!MSUgreen}
 \setbeamercolor*{palette tertiary}{bg=black,fg=white!30!MSUgreen}
-\setbeamercolor*{palette quaternary}{fg=MSUgreen!10!black,bg=white!05!MSUgreen}
+\setbeamercolor*{palette quaternary}{fg=MSUgreen!10!white,bg=blue!10!MSUgreen}
 
 \setbeamercolor*{sidebar}{fg=MSUgreen,bg=MSUgreen!75!white}
 
-\setbeamercolor*{palette sidebar primary}{fg=MSUgreen!10!black}
-\setbeamercolor*{palette sidebar secondary}{fg=white!80!blue}
-\setbeamercolor*{palette sidebar tertiary}{fg=MSUgreen!50!black}
-\setbeamercolor*{palette sidebar quaternary}{fg=white!10!MSUgreen}
+% \setbeamercolor*{palette sidebar primary}{fg=MSUgreen!10!black}
+% \setbeamercolor*{palette sidebar secondary}{fg=white!80!blue}
+% \setbeamercolor*{palette sidebar tertiary}{fg=MSUgreen!50!black}
+% \setbeamercolor*{palette sidebar quaternary}{fg=black!80!MSUgreen}
 
 \setbeamercolor*{titlelike}{parent=palette primary}
 \setbeamercolor{frametitle}{bg=blue!10!MSUgreen}
@@ -86,7 +128,14 @@
 \setbeamercolor{block body}{parent=normal text,use=block title,bg=MSUgreen!15!white,fg=black}
 \setbeamercolor{block title}{bg=MSUgreen!90!blue,fg=white}
 
+\setbeamercolor{block title example}{bg=MSUgreen!40!blue,fg=white}
 \setbeamercolor{block body example}{parent=normal text,use=block title,bg=MSUgreen!15!white,fg=black}
+\setbeamercolor{item projected}{bg=MSUgreen}
+
+\setbeamercolor{section title}{parent=titlelike}
+\setbeamercolor{secciones}{fg=black,bg=orange!20}
+% \setbeamercolor{section in head}{fg=white, bg = blue!50!MSUgreen}
+% \setbeamertemplate{section in head/foot shaded}{\color{gray}\usebeamertemplate{section in head/foot}}
 \mode
 <all>
 % )))

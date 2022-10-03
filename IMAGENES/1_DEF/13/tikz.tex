@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+
+\newcommand{\hex}[1]{
+	\draw (#1) \foreach \n in {1,...,6}{--++ (\n*60:1cm)};
+	% \fill (#1) ++ (120:1cm) circle (1.5pt);
+	}
+
+\begin{tikzpicture}[>=latex]
+	\def\r{1.73205}
+	\hex{90:\r}
+	\hex{1.5,\r+\r/2}
+	\hex{1.5,\r-\r/2}
+	\fill [red] (0.5,3*\r/2) circle (1.5pt);
+\end{tikzpicture}
+
+\end{document}

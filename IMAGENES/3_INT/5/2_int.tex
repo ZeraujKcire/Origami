@@ -1,0 +1,265 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage[left=2.5cm,top=2.5cm,right=2.5cm,bottom=2.5cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage{ragged2e}  
+\usepackage{cancel}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{dsfont}
+\usepackage{parskip}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{subfig}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tkz-euclide}
+
+\begin{document}
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	El conjunto de dobleces posibles es $ D=\{a_i, b_j, c_k | i,j\in J_{17}, k\in J_{30} \} $, un conjunto de segmentos de rectas. 
+	
+	\textbf{\textit{\underline{Obs.:}}}
+	
+	Los dobleces que se harán al manifold son elementos del conjunto $ D-\{a_1,b_1,a_{17},b_{17}\} $.
+	
+	\textbf{\textit{\underline{Obs.:}}}
+	
+	Se ocupan 16 dobleces horizontales y verticales por la configuración 5 y similares.
+	
+	\textbf{\textit{\underline{Obs.:}}}
+	
+	Todo triángulo de una configuración queda atrapado por exactamente \underline{3 dobleces} (trivialmente).
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	Definimos el conjunto de triángulos de un manifold 
+	$$ M=\left\{ (a_i,c_j,c_k), (b_i,c_j,c_k), i\in J, j\in J,k=16..., 
+	a_i \cap c_j\neq D, a_i\cap c_j\neq\phi, 
+	c_j \cap c_k\neq D, b_i\cap c_j\neq\phi, 
+	b_i \cap c_k\neq\phi \right\} $$
+	
+	\textbf{\textit{\underline{Obs.:}}}
+	
+	$ M\subseteq D^3 $
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	Consideremos el conjunto de vértices $ V=M $ y hacemos que para cada par de vértices adyacentes exista \underline{una arista}
+	
+	$ |\pi_1(b)\cap\pi_1(e)|>1 $
+	
+	$ |\pi_i(a)\cap\pi_i(e)|\leqslant 1 $
+	
+	$ |\pi_1(c)\cap\pi_1(i)|>1 $
+	
+	$ |\pi_i(e)\cap\pi_i(f)|\leqslant 1 $
+	
+	$ |\pi_3(a)\cap\pi_3(d)|>1 $
+	
+	$ |\pi_i(b)\cap\pi_i(d)|\leqslant 1 $
+	
+	$ |\pi_i(a)\cap\pi_i(k)|\leqslant 1 $
+	
+	$ |\pi_3(b)\cap\pi_3(c)|>1 $
+	
+	$ |\pi_2(c)\cap\pi_2(d)|>1 $
+	
+	\begin{align*}
+		E&=\left\{ \{u, v\}: |\pi_i(u)\cap\pi_i(v)|>1,\mbox{ para algún }i \right\} \\
+		&\subseteq\left\{ \{ u,v \}: u,v\in M \right\}
+	\end{align*}
+	
+	ese el grafo $ G=(V,E) $ que describe la forma de todos los manifolds. 
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	Sea $ G=(V,E) $ el grafo anterior. Definimos una configuración de un \underline{manifold} como una función $ c:V\longrightarrow J_3 $ donde los elementos de $ J_3 $ representan lo siguiente:
+	\begin{itemize}
+		\item [a)] El color 1 se interpreta como blanco
+		
+		\item [b)] El color 2 se interpreta como negro
+		
+		\item [c)] El color 3 se interpreta como transparente
+	\end{itemize}
+	
+	tal que $ c=1 $ en 32 triángulos, $ c=2 $ en 32 y $ c=3 $ en 64. 
+	
+	\newpage
+	ALGORITMO
+	
+	1. Se tiene el grafo coloreado
+	
+	\textbf{\textit{\underline{Obs.:}}}
+	
+	del mismo color representan unión de triángulos
+	
+	2. Identificar todos los triángulos de cada color.
+	
+	3. Identificar todos los triángulos de un mismo color conectado.
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	En un grafo $ G=(V,E) $ decimos que $ u\in V $ es \underline{vecino} de $ v\in V $ si $ \exists(u,v)\in E $. decimos que $ u,v $ son adyacentes
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	Decimos que el grafo $ G $ es \underline{conexo} si $ \forall u\in V, \exists v\in V $ tal que $ u $ y $ v $ son vecinos 
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	Dado un grafo $ G=(V,E) $, un \underline{subgrafo} $ G' $ es un par $ V'\subseteq U \wedge E'\subseteq V' \times V' $ con $ G'=(V', E') $.
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	Un \underline{área} o \underline{región} de un \underline{manifold} es un subgrafo \fbox{conexo} $ G'\subseteq G $ tal que $ c(G') $ tiene un solo elemento.
+	
+	\textbf{\textit{\underline{Obs.:}}}
+	
+	Todos los nodos de un área tienen el mismo color.
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	Un \underline{nodo frontera} es un $ a\in M $ tal que $ c(a)\neq c(b) $ para algún nodo $ b\in M $ adyacente a $ a $
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	Definimos
+	
+	$ B=\{ b\in M | c(b)=1 \} $, 
+	
+	$ N=\{ n\in M | c(n)=2 \} $, 
+	
+	$ T=\{ t\in M | c(t)=3 \} $
+	
+	\textbf{\textit{\underline{Obs.:}}}
+	
+	$ B $ es el conjunto de triángulos blancos, $ N $ los negros y $ T $ los transparentes.
+	
+	\textbf{\textit{\underline{Obs.:}}}
+	$ \{B, N, T\} $ es una partición de $ M $
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	Denotaremos como
+	
+	$ E_1=\left\{ \{u, v\}: u,v\in B \wedge |\pi_i(u)\cap\pi_i(v)|>1,\mbox{ para algún }i \right\}  $
+	
+	$ E_2=\left\{ \{u, v\}: u,v\in N \wedge |\pi_i(u)\cap\pi_i(v)|>1,\mbox{ para algún }i \right\}  $
+	
+	$ E_3=\left\{ \{u, v\}: u,v\in T \wedge |\pi_i(u)\cap\pi_i(v)|>1,\mbox{ para algún }i \right\}  $
+	
+	
+	\textbf{\textit{\underline{Obs.:}}} 
+	
+	Para resolver el problema hay que considerar las componentes conexas de los grafos
+	$$ G_1=(B, E_1), G_2=(N, E_2) G_3=(T, E_3) $$
+	y sus fronteras.
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	Un \underline{área máximal} es un área de $ G $ que es una componente conexa de $ G_i $ para algún $ i $.
+		
+	4. identificar las áreas maximales y sus fronteras
+	
+	5. trazar los dobleces de todas las fronteras.
+	
+	
+	Sea $ J_n=\{1,2,...,n\}=\mathbb{N}\cup [1,n] $
+	 
+	Sea $ V=J_n\times J_n\times \{-1,1\}\cup \{(0,0,0)\}  $
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	Sean $ \pi_1:\mathbb{R}^3\longrightarrow\mathbb{R}^3 $ por $ \pi_i(¿?) =x_i$
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	Sea $ C\subseteq V\times V $ por 
+	$$ (x,y)\iff \pi_i(x)=\pi_i(y) $$
+	$$ C_1=\{ (x,y)\in V^2: \pi_1(x)=\pi_1(y) \} $$ 
+	
+	Sea $ R_2=\{ (x,y)\in V^2: \pi_2(x)=\pi_2(y) \} $
+	
+	entonces claramente $ C_1 $ y $ R_2 $ son clases de equivalencia, y una clase de equivalencia en $ C_2 $ es la columna en la parte superior y $ C $ en la inferior.
+	Una clase de equivalencia en $ R_1 $ es una ¿? sin la cara inferior y $ R_2 $ es la superior
+	
+	\textbf{\textit{\underline{Teo.:}}}
+	$$ C=C_1\cup C_2=\{(x,y)\in V^2:\pi_1(x)=\pi_1(y) \} \wedge R=R_1\cup R_2=\{(x,y)\in V^2: \pi_2(x)=\pi_2(y)\} $$ 
+	son clases de equivalencia.
+	
+	\textbf{\textit{\underline{Def.:}}}
+	$$ R_k(a_1,a_2,b_1,b_2)=\{ x\in V, a_1\leqslant \pi_1(x)\leqslant a_2, b_1\leqslant \pi_2(x)\leqslant b_2 \}=R_1\cup R_2 $$
+	
+	
+	\textbf{\textit{\underline{Def.:}}}
+	$$ C_2(a)=R_2(a,a,1,m), a\in J(n) $$
+	$$ F_i(b)=R_2(1,n,b,b), b\in J(m) $$
+	
+	\textbf{\textit{\underline{Obs.:}}}
+	$$ V=\bigcup_{k=1, a\in J(n)} C_i(a) =\bigcup_{k=1, b\in J(m)} F_i(b) $$
+	son ajenos
+	$$ V=\bigcup_{a\in J(n)} C_i(a) =\bigcup_{b\in J(m)} F_i(b) $$
+	
+	\textbf{\textit{\underline{Def.:}}}
+	
+	$ C(a)=G(a)\cup C(a) $
+	
+	$ F(b)=F_1(b)\cup F_2(b) $
+	
+	$$f_1^{-1}(x)=\left \{ \begin{array}{ll}
+		(0,0,0) & x\in R(1,?,1,m)\\
+		\\
+		(\pi_1(x)+1,\pi_2(x),-\pi_3(x)) & x\in C(1)\\
+		\\
+		x & \mbox{otherwise}
+	\end{array}  \right .$$ 
+
+	$$f_2^{-1}(x)=\left \{ \begin{array}{ll}
+		(0,0,0) & x\in R(1,2(2),1,m)\\
+		\\
+		(\pi_1(x)-3,\pi_2(x),\pi_3(x)) & x\in C_1(1)\\
+		\\
+		(\pi_1(x)+1,\pi_2(x),-\pi_3(x)) & x\in C_1(2)\\
+		\\
+		x & \mbox{otherwise}
+	\end{array}  \right .$$
+		
+	$$f_2^{1}(x)=\left \{ \begin{array}{ll}
+		(0,0,0) & x\in R(1,2(2),1,m)\\
+		\\
+		(\pi_1(x)+3,\pi_2(x),-\pi_3(x)) & x\in C(1)\\
+		\\
+		(\pi_1(x)+1,\pi_2(x),-\pi_3(x)) & x\in C(2)\\
+		\\
+		x & \mbox{otherwise}
+	\end{array}  \right .$$
+
+	$$f_3^{-1}(x)=\left \{ \begin{array}{ll}
+		(0,0,0) & x\in R(1,2(3),1,m)\\
+		\\
+		(\pi_1(x)+5,\pi_2(x),-\pi_3(x)) & x\in C(1)\\
+		\\
+		(\pi_1(x)+3,\pi_2(x),-\pi_3(x)) & x\in C(2)\\
+		\\
+		(\pi_1(x)+1,\pi_2(x),-\pi_3(x)) & x\in C(3)\\
+		\\
+		x & \mbox{otherwise}
+	\end{array}  \right .$$
+		
+	
+	
+	
+	
+	
+\end{document}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2021.5.9)  29 SEP 2022 12:50
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2021.5.9)  2 OCT 2022 09:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -7,12 +7,12 @@ entering extended mode
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14>
 ! Undefined control sequence.
-l.5 \institute
-              {Universidad Autónoma de Aguascalientes.}
+l.11 \usetheme
+              {Warsaw}
 ? 
 ! Emergency stop.
-l.5 \institute
-              {Universidad Autónoma de Aguascalientes.}
+l.11 \usetheme
+              {Warsaw}
 End of file on the terminal!
 
  

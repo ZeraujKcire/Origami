@@ -1,2 +1,5 @@
-\beamer@sectionintoc {1}{Definición de Origami y Teselación.}{2}{0}{1}
-\beamer@sectionintoc {2}{Pi-Sistemas}{4}{0}{2}
+\beamer@sectionintoc {1}{Origamis y Teselaciones.}{4}{0}{1}
+\beamer@sectionintoc {2}{Problema a Resolver.}{21}{0}{2}
+\beamer@sectionintoc {3}{Primeros intentos.}{29}{0}{3}
+\beamer@sectionintoc {4}{Pi-Sistemas.}{38}{0}{4}
+\beamer@sectionintoc {5}{Álgebra.}{41}{0}{5}

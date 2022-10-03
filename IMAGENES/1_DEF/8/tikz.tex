@@ -1,0 +1,59 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+%: === TIPOGRAFÍA === (((
+\usepackage{fontspec}
+\setmainfont[
+  BoldFont       = bodonibi,
+	ItalicFont     = Century modern italic2.ttf,
+	BoldItalicFont = bodonibi,
+	SmallCapsFont  = lmromancaps10-regular.otf
+]{Century_modern.ttf}
+\DeclareSymbolFont{italics}{\encodingdefault}{\rmdefault}{m}{it}
+\DeclareSymbolFontAlphabet{\mathit}{italics}
+\ExplSyntaxOn
+\int_step_inline:nnnn { `A } { 1 } { `Z }
+ {  \exp_args:Nf \DeclareMathSymbol{\char_generate:nn{#1}{11}}{\mathalpha}{italics}{#1} }
+\int_step_inline:nnnn { `a } { 1 } { `z } {  \exp_args:Nf \DeclareMathSymbol{\char_generate:nn{#1}{11}}{\mathalpha}{italics}{#1}}
+\ExplSyntaxOff
+% )))
+
+\begin{document}
+
+\begin{tikzpicture}[>=latex]
+	\clip (-4,0) rectangle (7.2,4);
+	% \fill [gray!20] (0,0) rectangle (-4cm,4cm);
+	\draw (0,0) rectangle (-4,4);
+	\node [opacity=0.25] at (-2,2) {\includegraphics[width = 4cm, height = 4cm]{crane.png}};
+	\node at (4.5,2) {\includegraphics[width = 4cm, height = 4cm]{swan.png}};
+	\draw [->, xshift=0.4cm] (0.2,2) to [out=20 , in=160] node [above,midway] {\(T\)} (1.8,2);
+	\def\a{1.5*0.88}
+	\def\b{0.62*0.88}
+	\def\t{238}
+	\def\r{0.34}
+	\def\s{0.95}
+	\def\th{315}
+	\draw [dash pattern = on 6pt off 2pt, red] (0,4)
+	 -- (-\a,4-\b)
+	 --++ (\t:\r)
+	 --++ (\th:\s)
+	 -- (-\b,4-\a)
+	 -- cycle;
+	 \coordinate (A) at (-0.55,2.8);
+	 \coordinate (B) at (-1,3.45);
+	 \coordinate (C) at (-1.2,3);
+	 \draw [thick , red,->] (C) -- (A) node [right] {\(y\)};
+	 \draw [thick , blue,->] (C) -- (B) node [above] {\(x\)};
+	 \draw [thick ,violet,->] (C)++(-15:3mm) --++ (0.2*1.5,0.45*1.5) node [right] {\(ax+by\)};
+	 \begin{scope}[xshift=1.8cm, rotate=-87]
+	 \coordinate (A) at (-0.55,2.8);
+	 \coordinate (B) at (-1,3.45);
+	 \coordinate (C) at (-1.2,3);
+	 \draw [thick , red,->] (C) -- (A) node [below] {\(Ty\)};
+	 \draw [thick , blue,->] (C) -- (B) node [right] {\(Tx\)};
+	 \draw [thick ,violet,->] (C)++(-15:3mm) --++ (0.2*1.5,0.45*1.5) node [below right] {\(T(ax+by)\)};
+	 \end{scope}
+\end{tikzpicture}
+
+\end{document}
